@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Header from "../components/Header/Header";
 import Main from "../components/Main/Main";
 import Footer from "../components/Footer/Footer";
 import PopupWithForm from "../components/PopupWithForm/PopupWithForm";
 import ImagePopup from "../components/ImagePopup/ImagePopup";
-import { useCallback, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import CurrentUserContext from "../context/CurrentUserContext";
 import api from "../utils/api";
 import EditProfilePopup from "./EditProfilePopup/EditProfilePopup";
@@ -35,29 +36,26 @@ function App() {
   const [isSuccessful, setIsSuccessful] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const setOnCloseAllPopups = useCallback(() => {
+  const setOnCloseAllPopups = () => {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsImagePopup(false);
     setIsDeletePopupOpen(false);
     setIsResultOpenPopup(false);
-  }, []);
+  };
 
-  const closePopupByEsc = useCallback(
-    (evt) => {
-      if (evt.key === "Escape") {
-        setOnCloseAllPopups();
-        document.removeEventListener("keydown", closePopupByEsc);
-      }
-    },
-    [setOnCloseAllPopups]
-  );
+  const closePopupByEsc = (evt) => {
+    if (evt.key === "Escape") {
+      setOnCloseAllPopups();
+      document.removeEventListener("keydown", closePopupByEsc);
+    }
+  };
 
-  const closeAllPopups = useCallback(() => {
+  const closeAllPopups = () => {
     setOnCloseAllPopups();
     document.removeEventListener("keydown", closePopupByEsc);
-  }, [setOnCloseAllPopups, closePopupByEsc]);
+  };
 
   useEffect(() => {
     if (localStorage.jwt) {
@@ -73,7 +71,7 @@ function App() {
     } else {
       setLoggedIn(false);
     }
-  }, [navigate]);
+  }, []);
 
   function setEvantListener() {
     document.addEventListener("keydown", closePopupByEsc);

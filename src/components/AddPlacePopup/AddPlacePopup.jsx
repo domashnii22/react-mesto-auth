@@ -35,8 +35,8 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
         value={values.title}
         isInputValid={isInputValid.title}
         error={errors.title}
-        minLength={2}
-        maxLength={30}
+        minLenght={2}
+        maxLenght={30}
       ></Input>
       <Input
         required

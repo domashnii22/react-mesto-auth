@@ -31,7 +31,7 @@ export default function Login({ name, handleLogin }) {
           name="password"
           placeholder="Пароль"
           type="password"
-          minLenght={3}
+          minLenght={2}
           onChange={handleChange}
           value={values.password}
           isInputValid={isInputValid.password}

@@ -17,8 +17,8 @@ export default function Input({
             name={name}
             type={type}
             placeholder={placeholder}
-            minLength={minLenght ? minLenght : ""}
-            maxLength={maxLenght ? maxLenght : ""}
+            minLength={minLenght ? minLenght : " "}
+            maxLength={maxLenght ? maxLenght : " "}
             required
             className={`login__input ${
               isInputValid === undefined || isInputValid
@@ -36,8 +36,8 @@ export default function Input({
             name={name}
             type={type}
             placeholder={placeholder}
-            minLength={minLenght ? minLenght : ""}
-            maxLength={maxLenght ? maxLenght : ""}
+            minLength={minLenght ? minLenght : " "}
+            maxLength={maxLenght ? maxLenght : " "}
             required
             className={`popup__input ${
               isInputValid === undefined || isInputValid
